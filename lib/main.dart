@@ -23,7 +23,7 @@ void main() async {
 }
 
 final _router = GoRouter(
-  initialLocation: '/login',
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/login',

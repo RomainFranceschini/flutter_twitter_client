@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -29,11 +31,18 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> _signInWithTwitter() async {
     TwitterAuthProvider twitterProvider = TwitterAuthProvider();
+    final UserCredential credential;
 
-    if (kIsWeb) {
-      await FirebaseAuth.instance.signInWithPopup(twitterProvider);
-    } else {
-      await FirebaseAuth.instance.signInWithProvider(twitterProvider);
+    try {
+      if (kIsWeb) {
+        credential =
+            await FirebaseAuth.instance.signInWithPopup(twitterProvider);
+      } else {
+        credential =
+            await FirebaseAuth.instance.signInWithProvider(twitterProvider);
+      }
+    } catch (e) {
+      log('ohno', error: e, name: runtimeType.toString());
     }
   }
 }

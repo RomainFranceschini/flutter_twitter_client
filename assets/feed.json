@@ -1,0 +1,20 @@
+{
+  "tweets": [
+    {
+      "text": "Lorem ipsum dolor sit amet",
+      "author": "user1"
+    },
+    {
+      "text": "Lorem ipsum dolor sit amet",
+      "author": "lqksjdhfqklsjdhf"
+    },
+    {
+      "text": "Lorem ipsum dolor sit amet",
+      "author": "qsdf"
+    },
+    {
+      "text": "Lorem ipsum dolor sit amet",
+      "author": "qsdfqsdfqsdf"
+    }
+  ]
+}
