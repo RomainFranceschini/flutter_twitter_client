@@ -35,9 +35,15 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Twitter'),
       ),
       body: FutureBuilder<List<Tweet>>(
-        key: ValueKey(_future.hashCode),
+        // key: ValueKey(_future.hashCode),
         future: _future,
         builder: (context, snapshot) {
+          if (snapshot.connectionState != ConnectionState.done) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
           if (snapshot.hasError) {
             return Center(
               child: Column(
@@ -71,11 +77,9 @@ class _HomePageState extends State<HomePage> {
                 );
               },
             );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
           }
+
+          return const SizedBox.shrink();
         },
       ),
     );
